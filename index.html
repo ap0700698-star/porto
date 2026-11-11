@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Portofolio Akbar Pratama: proyek web, catatan belajar, dan sertifikat yang terverifikasi.">
+  <meta name="theme-color" content="#f4f0e7">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 36 36'%3E%3Crect width='36' height='36' rx='18' fill='%232e5945'/%3E%3Ctext x='9' y='25' font-family='Georgia' font-size='24' font-style='italic' fill='%23fbf9f4'%3Ea%3C/text%3E%3C/svg%3E">
+  <title>Akbar Pratama — Portofolio</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --paper: #f4f0e7;
+      --paper-light: #fbf9f4;
+      --ink: #232720;
+      --muted: #656a5f;
+      --green: #2e5945;
+      --green-dark: #1d3d30;
+      --orange: #c7613d;
+      --yellow: #edcc71;
+      --line: #ded8ca;
+      --serif: Georgia, "Times New Roman", serif;
+      --sans: "Segoe UI", Arial, sans-serif;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; scroll-padding-top: 84px; }
+    body {
+      margin: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: var(--sans);
+      line-height: 1.65;
+    }
+    a { color: inherit; text-decoration: none; }
+    a:focus-visible { outline: 3px solid var(--orange); outline-offset: 4px; }
+    svg { display: block; max-width: 100%; }
+    .wrap { width: min(1120px, calc(100% - 48px)); margin-inline: auto; }
+
+    .site-header {
+      position: sticky;
+      z-index: 5;
+      top: 0;
+      border-bottom: 1px solid rgba(35, 39, 32, .12);
+      background: rgba(244, 240, 231, .94);
+      backdrop-filter: blur(12px);
+    }
+    .nav { min-height: 72px; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+    .brand { display: inline-flex; align-items: center; gap: 10px; font-size: .9rem; font-weight: 800; letter-spacing: .03em; }
+    .brand-mark {
+      width: 34px;
+      height: 34px;
+      display: grid;
+      place-items: center;
+      border-radius: 50% 44% 48% 42%;
+      background: var(--green);
+      color: var(--paper-light);
+      font-family: var(--serif);
+      font-size: 1.05rem;
+      font-style: italic;
+    }
+    .nav-links { display: flex; align-items: center; gap: 26px; }
+    .nav-links a { color: var(--muted); font-size: .86rem; font-weight: 650; }
+    .nav-links a:hover { color: var(--orange); }
+    .nav-links .nav-contact { color: var(--green); }
+
+    .hero { padding: 78px 0 52px; }
+    .hero-grid { display: grid; grid-template-columns: 1.04fr .96fr; align-items: center; gap: 58px; }
+    .eyebrow {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin: 0 0 19px;
+      color: var(--green);
+      font-size: .73rem;
+      font-weight: 800;
+      letter-spacing: .13em;
+      text-transform: uppercase;
+    }
+    .eyebrow::before { width: 25px; height: 1px; background: var(--orange); content: ""; }
+    h1, h2, h3, p { margin-top: 0; }
+    h1 {
+      max-width: 620px;
+      margin-bottom: 18px;
+      font-family: var(--serif);
+      font-size: clamp(3.2rem, 7vw, 6.1rem);
+      font-weight: 500;
+      letter-spacing: -.075em;
+      line-height: .96;
+    }
+    h1 span { color: var(--green); font-style: italic; }
+    .hero-copy { max-width: 470px; margin-bottom: 24px; color: var(--muted); font-size: 1.02rem; }
+    .hero-copy strong { color: var(--ink); font-weight: 700; }
+    .hero-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 16px; }
+    .button {
+      min-height: 48px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 11px;
+      padding: 0 19px;
+      border: 1px solid var(--green);
+      border-radius: 3px 18px 4px 17px;
+      background: var(--green);
+      color: white;
+      font-size: .88rem;
+      font-weight: 750;
+      transition: transform .18s ease, background .18s ease;
+    }
+    .button:hover { transform: translateY(-2px); background: var(--green-dark); }
+    .text-link { padding: 9px 0; color: var(--green); font-size: .9rem; font-weight: 750; }
+    .text-link span { display: inline-block; margin-left: 4px; transition: transform .18s ease; }
+    .text-link:hover span { transform: translate(3px, -2px); }
+
+    .hero-art {
+      position: relative;
+      min-height: 410px;
+      display: grid;
+      place-items: center;
+      overflow: hidden;
+      border: 1px solid rgba(35, 39, 32, .12);
+      border-radius: 49% 47% 4px 4px;
+      background-color: #e4e6d6;
+      background-image: radial-gradient(rgba(46, 89, 69, .18) .7px, transparent .7px);
+      background-size: 12px 12px;
+    }
+    .art-label {
+      position: absolute;
+      z-index: 1;
+      top: 25px;
+      left: 25px;
+      padding: 6px 11px;
+      border: 1px solid rgba(35, 39, 32, .3);
+      border-radius: 2px 9px 3px 8px;
+      background: var(--paper-light);
+      color: var(--green);
+      font-family: var(--serif);
+      font-size: .88rem;
+      font-style: italic;
+      transform: rotate(-4deg);
+    }
+    .hero-art svg { width: min(100%, 450px); margin-top: 22px; }
+    .art-note {
+      position: absolute;
+      right: 19px;
+      bottom: 24px;
+      color: var(--green-dark);
+      font-family: var(--serif);
+      font-size: .96rem;
+      font-style: italic;
+      transform: rotate(-5deg);
+    }
+    .hero-caption { margin: 13px 0 0; color: var(--muted); font-size: .75rem; text-align: right; }
+
+    .intro-strip { border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+    .intro-strip-inner { min-height: 67px; display: flex; align-items: center; justify-content: space-between; gap: 20px; }
+    .intro-strip p { margin: 0; color: var(--muted); font-family: var(--serif); font-size: 1rem; font-style: italic; }
+    .strip-mark { color: var(--orange); font-size: 1.1rem; }
+
+    .section { padding: 92px 0; }
+    .section-top { display: flex; align-items: end; justify-content: space-between; gap: 30px; margin-bottom: 34px; }
+    .section-top .eyebrow { margin-bottom: 12px; }
+    h2 { margin-bottom: 0; font-family: var(--serif); font-size: clamp(2.4rem, 4vw, 3.6rem); font-weight: 500; letter-spacing: -.06em; line-height: 1.05; }
+    .section-note { max-width: 340px; margin: 0 0 2px; color: var(--muted); font-size: .91rem; }
+
+    .projects { padding-top: 78px; }
+    .project-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; }
+    .project-card {
+      overflow: hidden;
+      border: 1px solid var(--line);
+      border-radius: 5px 25px 5px 5px;
+      background: var(--paper-light);
+      transition: transform .2s ease, box-shadow .2s ease;
+    }
+    .project-card:hover { transform: translateY(-4px); box-shadow: 0 16px 30px rgba(35, 39, 32, .09); }
+    .project-art { min-height: 210px; display: grid; place-items: center; overflow: hidden; }
+    .project-art.math { background: #e8c66f; }
+    .project-art.queue { background: #d7e1d3; }
+    .project-art svg { width: 100%; max-height: 228px; }
+    .project-body { padding: 23px 25px 25px; }
+    .project-kicker { margin-bottom: 8px; color: var(--orange); font-size: .7rem; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; }
+    .project-body h3 { margin-bottom: 8px; font-family: var(--serif); font-size: 1.65rem; font-weight: 500; letter-spacing: -.035em; line-height: 1.15; }
+    .project-body p { min-height: 52px; margin-bottom: 17px; color: var(--muted); font-size: .89rem; }
+    .project-foot { display: flex; align-items: center; justify-content: space-between; gap: 15px; padding-top: 14px; border-top: 1px solid var(--line); }
+    .tags { display: flex; flex-wrap: wrap; gap: 6px; }
+    .tag { padding: 4px 8px; border: 1px solid var(--line); border-radius: 999px; color: var(--muted); font-size: .68rem; }
+    .project-link { flex: 0 0 auto; color: var(--green); font-size: .8rem; font-weight: 800; }
+    .project-link:hover { color: var(--orange); }
+
+    .about-section { background: var(--green-dark); color: var(--paper-light); }
+    .about-grid { display: grid; grid-template-columns: .8fr 1.2fr; align-items: start; gap: 84px; }
+    .about-section .eyebrow { color: var(--yellow); }
+    .about-heading { position: sticky; top: 105px; }
+    .about-heading h2 { max-width: 370px; }
+    .about-copy { max-width: 610px; }
+    .about-copy p { margin-bottom: 16px; color: rgba(251, 249, 244, .79); font-size: 1rem; }
+    .about-copy p:first-child { color: var(--paper-light); font-family: var(--serif); font-size: 1.45rem; line-height: 1.45; }
+    .about-copy p:last-child { margin-bottom: 0; }
+    .about-signoff { display: inline-block; margin-top: 12px; color: var(--yellow); font-family: var(--serif); font-size: 1.15rem; font-style: italic; transform: rotate(-4deg); }
+
+    .notes-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 54px; }
+    .notes-grid > * { min-width: 0; }
+    .notes-title { margin-bottom: 22px; font-family: var(--serif); font-size: 1.7rem; font-weight: 500; letter-spacing: -.04em; }
+    .timeline { border-top: 1px solid var(--line); }
+    .timeline-item { display: grid; grid-template-columns: 95px 1fr; gap: 18px; padding: 18px 0; border-bottom: 1px solid var(--line); }
+    .timeline-date { padding-top: 3px; color: var(--orange); font-size: .73rem; font-weight: 800; letter-spacing: .04em; }
+    .timeline-item strong { display: block; margin-bottom: 3px; font-size: .95rem; }
+    .timeline-item p { margin: 0; color: var(--muted); font-size: .83rem; }
+    .certificate-carousel { position: relative; min-width: 0; }
+    .certificate-controls { display: flex; justify-content: flex-end; gap: 8px; margin: -8px 0 12px; }
+    .certificate-controls button {
+      width: 38px;
+      height: 38px;
+      display: grid;
+      place-items: center;
+      border: 1px solid var(--line);
+      border-radius: 50%;
+      background: var(--paper-light);
+      color: var(--green);
+      cursor: pointer;
+      font: inherit;
+      font-size: 1.15rem;
+      transition: background .18s ease, color .18s ease, opacity .18s ease;
+    }
+    .certificate-controls button:hover:not(:disabled) { background: var(--green); color: white; }
+    .certificate-controls button:focus-visible { outline: 3px solid var(--orange); outline-offset: 3px; }
+    .certificate-controls button:disabled { cursor: default; opacity: .38; }
+    .certificate-list {
+      display: flex;
+      width: 100%;
+      min-width: 0;
+      gap: 14px;
+      overflow-x: auto;
+      padding: 1px 2px 12px 1px;
+      overscroll-behavior-inline: contain;
+      scroll-behavior: smooth;
+      scroll-snap-type: x mandatory;
+      scrollbar-color: var(--green) var(--line);
+      scrollbar-width: thin;
+    }
+    .certificate {
+      flex: 0 0 calc(50% - 7px);
+      min-height: 176px;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 17px;
+      padding: 17px;
+      border: 1px solid var(--line);
+      border-radius: 4px 15px 4px 4px;
+      background: var(--paper-light);
+      scroll-snap-align: start;
+    }
+    .certificate small { display: block; margin-bottom: 4px; color: var(--orange); font-size: .68rem; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; }
+    .certificate strong { font-family: var(--serif); font-size: 1.02rem; font-weight: 500; line-height: 1.3; }
+    .certificate a { flex: 0 0 auto; color: var(--green); font-size: .78rem; font-weight: 800; }
+    .certificate a:hover { color: var(--orange); }
+    .certificate-position { margin: 2px 0 0; color: var(--muted); font-size: .75rem; text-align: center; }
+    .source-note { margin: 8px 0 0; color: var(--muted); font-size: .75rem; }
+
+    .contact { padding: 0 0 82px; }
+    .contact-card {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 28px;
+      overflow: hidden;
+      padding: 36px 40px;
+      border-radius: 4px 30px 4px 4px;
+      background: var(--orange);
+      color: white;
+    }
+    .contact-card::after {
+      position: absolute;
+      right: 150px;
+      bottom: -96px;
+      width: 220px;
+      height: 220px;
+      border: 1px solid rgba(255,255,255,.32);
+      border-radius: 48% 52% 43% 57%;
+      content: "";
+      transform: rotate(28deg);
+    }
+    .contact-card .eyebrow { color: #ffe8ad; }
+    .contact-card h2 { max-width: 520px; font-size: clamp(2.2rem, 4vw, 3.2rem); }
+    .contact-card p { margin: 8px 0 0; color: rgba(255,255,255,.85); }
+    .contact-card .button { position: relative; z-index: 1; border-color: var(--paper-light); background: var(--paper-light); color: var(--green-dark); }
+    .contact-card .button:hover { background: white; }
+    footer { padding: 19px 0 25px; color: var(--muted); font-size: .77rem; }
+    .footer-inner { display: flex; justify-content: space-between; gap: 16px; }
+
+    @media (max-width: 800px) {
+      .hero-grid { gap: 32px; }
+      .hero-art { min-height: 350px; }
+      .about-grid { gap: 45px; }
+      .section { padding: 72px 0; }
+    }
+    @media (max-width: 620px) {
+      html { scroll-padding-top: 68px; }
+      .wrap { width: min(100% - 34px, 490px); }
+      .nav { min-height: 64px; }
+      .nav-links { gap: 14px; }
+      .nav-links a { font-size: .77rem; }
+      .nav-links a:nth-child(2) { display: none; }
+      .hero { padding: 53px 0 35px; }
+      .hero-grid, .about-grid, .notes-grid { grid-template-columns: 1fr; }
+      .hero-grid { gap: 27px; }
+      h1 { font-size: clamp(3.25rem, 17vw, 5rem); }
+      .hero-art { min-height: 315px; border-radius: 42% 42% 4px 4px; }
+      .hero-art svg { width: min(94%, 370px); }
+      .hero-caption { text-align: left; }
+      .intro-strip-inner { min-height: 59px; }
+      .intro-strip p { font-size: .85rem; }
+      .section { padding: 63px 0; }
+      .section-top { align-items: flex-start; flex-direction: column; gap: 13px; margin-bottom: 25px; }
+      .section-note { max-width: 100%; }
+      .projects { padding-top: 58px; }
+      .project-grid { grid-template-columns: 1fr; gap: 16px; }
+      .project-art { min-height: 190px; }
+      .project-body { padding: 20px; }
+      .project-body p { min-height: 0; }
+      .about-grid { gap: 25px; }
+      .about-heading { position: static; }
+      .about-copy p:first-child { font-size: 1.3rem; }
+      .notes-grid { gap: 42px; }
+      .timeline-item { grid-template-columns: 82px 1fr; gap: 12px; }
+      .certificate-list { gap: 11px; }
+      .certificate-controls { margin-top: -3px; }
+      .certificate { flex-basis: 82%; min-height: 158px; }
+      .contact { padding-bottom: 56px; }
+      .contact-card { align-items: flex-start; flex-direction: column; padding: 27px 23px; }
+      .contact-card::after { right: -118px; }
+      .footer-inner { flex-direction: column; gap: 4px; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <nav class="nav wrap" aria-label="Navigasi utama">
+      <a class="brand" href="#beranda" aria-label="Akbar Pratama, ke beranda">
+        <span class="brand-mark" aria-hidden="true">a.</span>
+        <span>AKBAR PRATAMA</span>
+      </a>
+      <div class="nav-links">
+        <a href="#karya">Karya</a>
+        <a href="#tentang">Tentang</a>
+        <a href="#catatan">Catatan belajar</a>
+        <a class="nav-contact" href="#kontak">Kontak <span aria-hidden="true">↗</span></a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero wrap" id="beranda">
+      <div class="hero-grid">
+        <div>
+          <p class="eyebrow">Halo, saya Akbar</p>
+          <h1>Belajar web,<br>lalu <span>mencoba.</span></h1>
+          <p class="hero-copy"><strong>Siswa SMK yang senang membuat hal kecil jadi berguna.</strong> Saya belajar pemrograman web lewat kelas dan proyek sendiri—masih banyak yang ingin saya coba.</p>
+          <div class="hero-actions">
+            <a class="button" href="#karya">Lihat karya <span aria-hidden="true">↘</span></a>
+            <a class="text-link" href="https://github.com/ap0700698-star" target="_blank" rel="noopener noreferrer">Buka GitHub <span aria-hidden="true">↗</span></a>
+          </div>
+        </div>
+        <div>
+          <div class="hero-art" role="img" aria-label="Ilustrasi meja belajar dengan laptop, tanaman, buku catatan, dan secangkir kopi">
+            <span class="art-label">meja belajar</span>
+            <svg viewBox="0 0 460 355" aria-hidden="true">
+              <path d="M66 297c76-13 238-15 327 1" fill="none" stroke="#1d3d30" stroke-width="4" stroke-linecap="round"/>
+              <path d="M110 300l-9 36m240-37 12 38" fill="none" stroke="#1d3d30" stroke-width="4" stroke-linecap="round"/>
+              <path d="M150 103c0-10 8-18 18-18h150c10 0 18 8 18 18v112H150V103z" fill="#f7f3e8" stroke="#1d3d30" stroke-width="4"/>
+              <path d="M140 215h206l17 20H123l17-20z" fill="#c7613d" stroke="#1d3d30" stroke-width="4" stroke-linejoin="round"/>
+              <rect x="166" y="106" width="154" height="89" rx="4" fill="#d5e0d1"/>
+              <path d="M181 131h45m-45 18h76m-76 18h58" stroke="#2e5945" stroke-width="5" stroke-linecap="round"/>
+              <path d="M224 221h39" stroke="#f4f0e7" stroke-width="4" stroke-linecap="round"/>
+              <path d="M65 252c21-15 61-19 91-8v39H65z" fill="#edcc71" stroke="#1d3d30" stroke-width="4"/>
+              <path d="M76 246c8-26 8-47 1-65m4 30c-19-11-25-24-25-39 18 6 29 18 30 39m-9 14c18-14 32-19 46-17-7 18-23 27-44 28" fill="none" stroke="#2e5945" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M362 244h44v42h-44z" fill="#fffaf0" stroke="#1d3d30" stroke-width="4"/>
+              <path d="M406 254c19-4 23 25 0 26" fill="none" stroke="#1d3d30" stroke-width="4"/>
+              <path d="M374 235c-9-9 5-12 0-22m16 22c-9-9 5-12 0-22" fill="none" stroke="#c7613d" stroke-width="3" stroke-linecap="round"/>
+              <path d="M109 119l-9-15m251 35 17-11m-14-29 12-10" fill="none" stroke="#c7613d" stroke-width="4" stroke-linecap="round"/>
+              <path d="M94 81c11-10 25-8 31 4-9 10-23 10-31-4z" fill="#fffaf0" stroke="#1d3d30" stroke-width="2"/>
+              <path d="M363 91c9-11 21-12 30-3-7 12-19 15-30 3z" fill="#fffaf0" stroke="#1d3d30" stroke-width="2"/>
+            </svg>
+            <span class="art-note">pelan-pelan, jadi</span>
+          </div>
+          <p class="hero-caption">Sedikit demi sedikit, dari meja belajar.</p>
+        </div>
+      </div>
+    </section>
+
+    <div class="intro-strip">
+      <div class="intro-strip-inner wrap">
+        <p>Belajar dari kelas. Mengerti dengan membuat.</p>
+        <span class="strip-mark" aria-hidden="true">✳</span>
+      </div>
+    </div>
+
+    <section class="section projects wrap" id="karya">
+      <div class="section-top">
+        <div>
+          <p class="eyebrow">Yang pernah saya buat</p>
+          <h2>Dua proyek kecil,<br>banyak pelajaran.</h2>
+        </div>
+        <p class="section-note">Bukan proyek besar—tapi masing-masing memberi saya alasan untuk belajar hal baru.</p>
+      </div>
+      <div class="project-grid">
+        <article class="project-card">
+          <div class="project-art math">
+            <svg viewBox="0 0 600 245" role="img" aria-label="Ilustrasi kartu soal matematika berwarna-warni">
+              <path d="M68 204c108-17 353-16 465 0" fill="none" stroke="#4c4025" stroke-width="3" stroke-linecap="round"/>
+              <g transform="rotate(-8 205 125)">
+                <rect x="100" y="52" width="201" height="137" rx="13" fill="#fff8e4" stroke="#473a22" stroke-width="4"/>
+                <text x="127" y="94" fill="#2e5945" font-family="Georgia,serif" font-size="21">berapa ya?</text>
+                <text x="131" y="151" fill="#c7613d" font-family="Georgia,serif" font-size="47">8 × 4</text>
+              </g>
+              <g transform="rotate(7 390 121)">
+                <rect x="333" y="71" width="152" height="112" rx="13" fill="#2e5945" stroke="#473a22" stroke-width="4"/>
+                <text x="360" y="117" fill="#f7f3e8" font-family="Arial,sans-serif" font-size="15">jawabannya</text>
+                <text x="382" y="158" fill="#edcc71" font-family="Georgia,serif" font-size="39">32!</text>
+              </g>
+              <path d="M477 46l7 16 17 2-13 11 4 16-15-9-14 9 4-16-13-11 17-2 6-16z" fill="#c7613d"/>
+              <circle cx="94" cy="73" r="8" fill="#2e5945"/>
+            </svg>
+          </div>
+          <div class="project-body">
+            <p class="project-kicker">01 · Belajar sambil bermain</p>
+            <h3>MathKids</h3>
+            <p>Latihan matematika untuk anak SD. Ada pilihan kelas dan operasi hitung, skor, serta papan peringkat.</p>
+            <div class="project-foot">
+              <div class="tags"><span class="tag">JavaScript</span><span class="tag">HTML</span><span class="tag">CSS</span></div>
+              <a class="project-link" href="https://ap0700698-star.github.io/matematika_sederhana/" target="_blank" rel="noopener noreferrer">Coba ↗</a>
+            </div>
+          </div>
+        </article>
+        <article class="project-card">
+          <div class="project-art queue">
+            <svg viewBox="0 0 600 245" role="img" aria-label="Ilustrasi tiket nomor antrean dengan kode QR">
+              <path d="M80 203c112-13 335-14 450 0" fill="none" stroke="#314636" stroke-width="3" stroke-linecap="round"/>
+              <g transform="rotate(-4 286 125)">
+                <path d="M172 52h230v42a17 17 0 000 34v54H172v-54a17 17 0 000-34V52z" fill="#fffaf0" stroke="#314636" stroke-width="4"/>
+                <path d="M322 60v111" stroke="#b3c4ad" stroke-width="3" stroke-dasharray="5 7"/>
+                <text x="195" y="90" fill="#2e5945" font-family="Arial,sans-serif" font-size="15" font-weight="700">NOMOR ANDA</text>
+                <text x="198" y="150" fill="#c7613d" font-family="Georgia,serif" font-size="50">A-12</text>
+                <g transform="translate(341 93)" fill="#1d3d30">
+                  <path d="M0 0h19v19H0zM5 5v9h9V5zM30 0h19v19H30zM35 5v9h9V5zM0 30h19v19H0zM5 35v9h9v-9zM25 25h8v8h-8zM38 27h10v7H38zM27 39h7v10h-7zM39 39h10v10H39z"/>
+                </g>
+              </g>
+              <circle cx="445" cy="67" r="17" fill="#edcc71" stroke="#314636" stroke-width="3"/>
+              <path d="M439 67l5 5 9-11" fill="none" stroke="#1d3d30" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M115 85c9-11 21-13 32-5-7 13-19 16-32 5z" fill="#c7613d"/>
+            </svg>
+          </div>
+          <div class="project-body">
+            <p class="project-kicker">02 · Biar antre lebih tertib</p>
+            <h3>Sistem Antrian Mandiri</h3>
+            <p>Ambil nomor antrean lewat kode QR, unduh tiket PDF, dan nomor kembali direset setiap hari pukul 04.00 WIB.</p>
+            <div class="project-foot">
+              <div class="tags"><span class="tag">JavaScript</span><span class="tag">HTML</span><span class="tag">CSS</span></div>
+              <a class="project-link" href="https://ap0700698-star.github.io/antrian/" target="_blank" rel="noopener noreferrer">Coba ↗</a>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section about-section" id="tentang">
+      <div class="about-grid wrap">
+        <div class="about-heading">
+          <p class="eyebrow">Sedikit tentang saya</p>
+          <h2>Saya lebih suka belajar dengan membuat.</h2>
+        </div>
+        <div class="about-copy">
+          <p>Saya Akbar Pratama, siswa SMK Putra Anda yang sedang belajar pemrograman web.</p>
+          <p>Biasanya saya mulai dari hal sederhana: coba satu fitur, lihat apa yang belum jalan, lalu cari tahu kenapa. MathKids dan aplikasi antrean di atas tumbuh dari kebiasaan itu.</p>
+          <p>Di luar proyek, saya belajar lewat kelas Dicoding. Halaman ini juga jadi catatan kecil—tentang apa yang sudah saya pelajari, dan apa yang ingin saya lanjutkan.</p>
+          <span class="about-signoff">Senang berkenalan!</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="section wrap" id="catatan">
+      <div class="section-top">
+        <div>
+          <p class="eyebrow">Belajar itu berproses</p>
+          <h2>Catatan perjalanan.</h2>
+        </div>
+        <p class="section-note">Yang saya tampilkan di sini adalah kelas dan program yang terkonfirmasi lewat email Dicoding.</p>
+      </div>
+      <div class="notes-grid">
+        <div>
+          <h3 class="notes-title">Beberapa titik penting</h3>
+          <div class="timeline">
+            <article class="timeline-item">
+              <span class="timeline-date">18 JUN 2026</span>
+              <div><strong>Belajar Dasar Pemrograman Web</strong><p>Sertifikat kelulusan dikirim oleh Dicoding.</p></div>
+            </article>
+            <article class="timeline-item">
+              <span class="timeline-date">18 JUN 2026</span>
+              <div><strong>Introduction to Financial Literacy</strong><p>Sertifikat kelulusan dikirim oleh Dicoding.</p></div>
+            </article>
+            <article class="timeline-item">
+              <span class="timeline-date">31 OKT 2026</span>
+              <div><strong>Coding Camp 2026 · DBS Foundation</strong><p>Program belajar berakhir. Saya lanjut belajar lewat proyek sendiri.</p></div>
+            </article>
+          </div>
+        </div>
+        <div>
+          <h3 class="notes-title">Sertifikat</h3>
+          <div class="certificate-carousel" aria-label="Sertifikat Akbar Pratama">
+            <div class="certificate-controls">
+              <button type="button" class="certificate-prev" aria-label="Lihat sertifikat sebelumnya" aria-controls="certificate-list" disabled>←</button>
+              <button type="button" class="certificate-next" aria-label="Lihat sertifikat berikutnya" aria-controls="certificate-list">→</button>
+            </div>
+            <div class="certificate-list" id="certificate-list" tabindex="0" aria-label="Daftar sertifikat, geser ke kiri atau kanan">
+            <article class="certificate">
+              <div><small>Dicoding · 18 Juni 2026</small><strong>Belajar Dasar Pemrograman Web</strong></div>
+              <a href="https://www.dicoding.com/academies/123/certificates/4182108" target="_blank" rel="noopener noreferrer">Lihat ↗</a>
+            </article>
+            <article class="certificate">
+              <div><small>Dicoding · 18 Juni 2026</small><strong>Introduction to Financial Literacy</strong></div>
+              <a href="https://www.dicoding.com/academies/905/certificates/4182108" target="_blank" rel="noopener noreferrer">Lihat ↗</a>
+            </article>
+            <article class="certificate">
+              <div><small>Dicoding · 1 November 2025</small><strong>Belajar Back-End Pemula dengan JavaScript</strong></div>
+              <a href="https://www.dicoding.com/certificates/QLZ99V0W7Z5D" target="_blank" rel="noopener noreferrer">Lihat ↗</a>
+            </article>
+            <article class="certificate">
+              <div><small>Dicoding · 30 Oktober 2025</small><strong>Belajar Dasar Pemrograman JavaScript</strong></div>
+              <a href="https://www.dicoding.com/certificates/4EXG172WDPRL" target="_blank" rel="noopener noreferrer">Lihat ↗</a>
+            </article>
+            <article class="certificate">
+              <div><small>Dicoding · 24 Oktober 2025</small><strong>Memulai Pemrograman dengan Python</strong></div>
+              <a href="https://www.dicoding.com/certificates/98XW057WLXM3" target="_blank" rel="noopener noreferrer">Lihat ↗</a>
+            </article>
+            <article class="certificate">
+              <div><small>Dicoding · 9 Oktober 2025</small><strong>Belajar Dasar AI</strong></div>
+              <a href="https://www.dicoding.com/certificates/53XE1Q7LVZRN" target="_blank" rel="noopener noreferrer">Lihat ↗</a>
+            </article>
+            <article class="certificate">
+              <div><small>Dicoding · 20 Juni 2025</small><strong>Financial Literacy 101</strong></div>
+              <a href="https://www.dicoding.com/certificates/MEPJO965LZ3V" target="_blank" rel="noopener noreferrer">Lihat ↗</a>
+            </article>
+            <article class="certificate">
+              <div><small>Dicoding · 16 Mei 2025</small><strong>Memulai Pemrograman Dengan C</strong></div>
+              <a href="https://www.dicoding.com/certificates/N9ZONY1D6XG5" target="_blank" rel="noopener noreferrer">Lihat ↗</a>
+            </article>
+            <article class="certificate">
+              <div><small>Dicoding · 16 Mei 2025</small><strong>Belajar Dasar Cloud dan Gen AI di AWS</strong></div>
+              <a href="https://www.dicoding.com/certificates/0LZ0Y48W3X65" target="_blank" rel="noopener noreferrer">Lihat ↗</a>
+            </article>
+            </div>
+            <p class="certificate-position" aria-live="polite"></p>
+          </div>
+          <p class="source-note">Geser kartu atau gunakan tombol panah untuk melihat semua sertifikat.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact wrap" id="kontak">
+      <div class="contact-card">
+        <div>
+          <p class="eyebrow">Mau ngobrol soal proyek?</p>
+          <h2>Saya terbuka untuk kenalan dan belajar bareng.</h2>
+          <p>Lihat kode dan hal lain yang sedang saya coba di GitHub.</p>
+        </div>
+        <a class="button" href="https://github.com/ap0700698-star" target="_blank" rel="noopener noreferrer">Kunjungi GitHub <span aria-hidden="true">↗</span></a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-inner wrap">
+      <span>© <span id="year">2026</span> Akbar Pratama</span>
+      <span>Dibuat sambil belajar, satu halaman demi satu halaman.</span>
+    </div>
+  </footer>
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    const certificateList = document.getElementById("certificate-list");
+    const certificateCards = [...certificateList.querySelectorAll(".certificate")];
+    const previousCertificate = document.querySelector(".certificate-prev");
+    const nextCertificate = document.querySelector(".certificate-next");
+    const certificatePosition = document.querySelector(".certificate-position");
+
+    function updateCertificateControls() {
+      const maxScroll = certificateList.scrollWidth - certificateList.clientWidth;
+      const trackLeft = certificateList.getBoundingClientRect().left;
+      const currentIndex = certificateCards.reduce((visibleIndex, card, index) => (
+        card.getBoundingClientRect().left <= trackLeft + 8
+          ? index
+          : visibleIndex
+      ), 0);
+
+      previousCertificate.disabled = certificateList.scrollLeft <= 2;
+      nextCertificate.disabled = certificateList.scrollLeft >= maxScroll - 2;
+      certificatePosition.textContent = `Sertifikat ${currentIndex + 1} dari ${certificateCards.length}`;
+    }
+
+    function moveCertificateList(direction) {
+      const card = certificateCards[0];
+      const gap = Number.parseFloat(getComputedStyle(certificateList).columnGap) || 0;
+      certificateList.scrollBy({ left: direction * (card.getBoundingClientRect().width + gap), behavior: "smooth" });
+    }
+
+    previousCertificate.addEventListener("click", () => moveCertificateList(-1));
+    nextCertificate.addEventListener("click", () => moveCertificateList(1));
+    certificateList.addEventListener("scroll", updateCertificateControls, { passive: true });
+    window.addEventListener("resize", updateCertificateControls);
+    updateCertificateControls();
+  </script>
+</body>
+</html>
